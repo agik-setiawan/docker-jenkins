@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  jenkins:
+    image: jenkins/jenkins
+    container_name: my_jenkins
+    ports:
+      - 8080:8080
+    restart: always
+    depends_on:
+      - php
+  php:
+    image: agik/php-node-sqlsrv:1.0
+    container_name: php_for_jenkins
+    restart: always
